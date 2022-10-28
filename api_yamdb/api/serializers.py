@@ -147,16 +147,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
             )
         return value
 
-    class Meta:
-        fields = ('username', 'email')
-        model = User
-        validators = [
-            serializers.UniqueTogetherValidator(
-                queryset=User.objects.all(),
-                fields=['username', 'email']
-            )
-        ]
-
 
 class ConfirmationSerializer(serializers.ModelSerializer):
     username = serializers.CharField(required=True)
