@@ -139,13 +139,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('email', 'username')
-        validators = [                             
-            serializers.UniqueTogetherValidator(   
-                queryset=User.objects.all(),
-                fields=['username', 'email']       
-            )
-        ]
-
+        
     def validate_username(self, value):
         if value.lower() == 'me':
             raise serializers.ValidationError(
