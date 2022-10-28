@@ -141,7 +141,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         fields = ('email', 'username')
         validators = [                             
             serializers.UniqueTogetherValidator(   
-                queryset=User.objects.all(),       
+                queryset=User.objects.all(),
                 fields=['username', 'email']       
             )
         ]
